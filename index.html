@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Frete</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; max-width: 500px; }
+    h1 { color: #333; }
+    label { display: block; margin-top: 10px; }
+    input { padding: 5px; width: 100%; }
+    button { margin-top: 15px; padding: 10px; background: green; color: #fff; border: none; cursor: pointer; width: 100%; }
+    button:hover { background: darkgreen; }
+    #resultado { margin-top: 20px; font-weight: bold; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Frete</h1>
+
+  <label>Distância da viagem (km):</label>
+  <input id="distancia" type="number" placeholder="Ex: 25">
+
+  <label>Consumo do caminhão (km/L):</label>
+  <input id="kmLitro" type="number" value="5">
+
+  <label>Preço do diesel (R$):</label>
+  <input id="precoDiesel" type="number" value="6">
+
+  <button onclick="calcularFrete()">Calcular Frete</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function calcularFrete() {
+      const distancia = parseFloat(document.getElementById("distancia").value);
+      const kmLitro = parseFloat(document.getElementById("kmLitro").value);
+      const precoDiesel = parseFloat(document.getElementById("precoDiesel").value);
+
+      if (isNaN(distancia) || isNaN(kmLitro) || isNaN(precoDiesel) || kmLitro <= 0) {
+        alert("Preencha todos os campos corretamente!");
+        return;
+      }
+
+      const litrosGastos = distancia / kmLitro;
+      const custo = litrosGastos * precoDiesel;
+
+      document.getElementById("resultado").innerHTML = 
+        `🔹 Distância: ${distancia.toFixed(2)} km <br>
+         🔹 Litros consumidos: ${litrosGastos.toFixed(2)} L <br>
+         💰 Custo estimado: R$ ${custo.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
