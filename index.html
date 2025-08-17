@@ -2,32 +2,97 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Frete</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; max-width: 500px; }
-    h1 { color: #333; }
-    label { display: block; margin-top: 10px; }
-    input { padding: 5px; width: 100%; }
-    button { margin-top: 15px; padding: 10px; background: green; color: #fff; border: none; cursor: pointer; width: 100%; }
-    button:hover { background: darkgreen; }
-    #resultado { margin-top: 20px; font-weight: bold; font-size: 18px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      background: green;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: darkgreen;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 20px;
+      }
+      input, button {
+        font-size: 14px;
+      }
+      #resultado {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Calculadora de Frete</h1>
+  <main>
+    <h1>Calculadora de Frete</h1>
 
-  <label>Distância da viagem (km):</label>
-  <input id="distancia" type="number" placeholder="Ex: 25">
+    <label>Distância da viagem (km):</label>
+    <input id="distancia" type="number" placeholder="Ex: 25">
 
-  <label>Consumo do caminhão (km/L):</label>
-  <input id="kmLitro" type="number" value="5">
+    <label>Consumo do caminhão (km/L):</label>
+    <input id="kmLitro" type="number" value="5">
 
-  <label>Preço do diesel (R$):</label>
-  <input id="precoDiesel" type="number" value="6">
+    <label>Preço do diesel (R$):</label>
+    <input id="precoDiesel" type="number" value="6">
 
-  <button onclick="calcularFrete()">Calcular Frete</button>
+    <button onclick="calcularFrete()">Calcular Frete</button>
 
-  <div id="resultado"></div>
+    <div id="resultado"></div>
+  </main>
 
   <script>
     function calcularFrete() {
